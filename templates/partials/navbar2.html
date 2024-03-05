@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<style>
+      .card-body {
+        height: 100%; 
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card {
+        width: 800px; 
+      }
+
+      .form-control {
+        width: calc(100% - 30px); 
+        margin-bottom: 5px;
+      }
+      
+      </style>-->
+      <style>
+        /* Default styles */
+        .custom-card {
+          width: 300px; /* Set a default width for the cards */
+          margin: 20px 10px; /* Add some margin around the cards */
+          display: inline-block; /* Display cards inline */
+        }
+      
+        /* Media query for handling different zoom levels */
+        @media screen and (max-width: 768px) {
+          /* Adjust styles for smaller screen sizes or zoomed-out views */
+          .custom-card {
+            width: 250px; /* Reduce the width of the cards */
+            margin: 10px 5px; /* Reduce the margin around the cards */
+          }
+        }
+      </style>
+  </head>
+  
+  <body>
+
+    <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <img
+            src="{{url_for('static', filename='/images/icon.png')}}"
+            alt="Logo"
+            width="90"
+            height="70"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <div class="navbar-text text-center mx-auto">
+          <h1 class="mb-0">Let's Do It</h1>
+          <p class="mb-0">
+            Your personal task manager for effortless productivity
+          </p>
+        </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-md-2" >
+        <!-- Sidebar container -->
+        <div
+          class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+          style="width: 220px; height: 100vh"
+        >
+        <a
+        
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+              <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/>
+              <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+              <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+          </svg>
+            <!-- !!!!!! adding an icon to the personnel dashboard-->
+            <span class=" fs-6"> Personnel Dashboard</span>
+        </a>
+      <hr />
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-kanban" viewBox="0 0 16 16">
+                  <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                  <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"/>
+                </svg>
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5M12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5M1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8m9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5m1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                </svg>
+                Settings
+              </a>
+
+            </li>
+          </ul>
+          <hr />
+          <div class="dropdown">
+            <a
+              href="#"
+              class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+              id="dropdownUser1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="rounded-circle me-2" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg>
+           
+              <strong>xxxxxx</strong>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark text-small shadow"
+              aria-labelledby="dropdownUser1"
+            >
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      
+        <div class="col-md-2 " style="margin-top: 150px;">
+          <div class="card mb-4 rounded-3 shadow" style="width: 300px;">
+            <div class="card-header py-1">
+              <h4 class="my-0 fw-normal">To Do</h4>
+            </div>
+            <div class="card-body">
+              <form action="/dashboard/add" method="POST"> 
+                <label for="">Title</label>
+                <input 
+                class="form-control"
+                type="text" 
+                name="title" 
+                placeholder="Add a new task ...">
+                <input class="btn btn-secondary mt-2 btn-sm" type="submit" value="Add">
+              </form>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-2" style="margin-top: 150px;">
+          <div class="card mb-4 rounded-3 shadow" style="width: 300px;">
+            <div class="card-header py-1">
+              <h4 class="my-0 fw-normal">In Progress</h4>
+            </div>
+            <div class="card-body">
+              <div class="col-md-4">1
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-2 " style="margin-top: 150px;">
+          <div class="card mb-4 rounded-3 shadow" style="width: 300px;">
+            <div class="card-header py-1">
+              <h4 class="my-0 fw-normal">Done</h4>
+            </div>
+            <div class="card-body">
+              <div class="col-md-4">
+                1
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+
+        <div class="col-md-2 " style="margin-top: 150px;">
+          <div class="card mb-4 rounded-3 shadow-sm" style="width: 700px;">
+            <div class="card-header py-1">
+              <h4 class="my-0 fw-normal">Statistics</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h6>Total</h6>
+                    <p class="text-center">{{total}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h6>Completed</h6>
+                    <p class="text-center">{{completed_tasks}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h6>Uncompleted</h6>
+                    <p class="text-center">{{uncompleted_tasks}}</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+         
+          </div>
+          {% for todo in todo_list%}
+          <div class="border-start border-5 mt-3 shadow">
+            <div class="card-body">
+              <h5>{{todo.id}} | {{todo.title}}</h5>
+              {% if todo.complete %}
+              <span class="btn btn-outline-success">Complete</span>
+              {% else %}
+              <span class="btn btn-outline-secondary">Uncomplete</span>
+              {% endif %}
+              <a class="btn btn-outline-warning" href="/dashboard/update/{{todo.id}}">Update</a>
+              <a class="btn btn-outline-danger" href="/dashboard/delete/{{todo.id}}">Delete</a>
+            </div>
+          </div> 
+          {%endfor%}
+          
+    </div>
+      
+
+<!--!!!!!!!!!!!!!
+          <div class="col" style="margin-top: 20px;">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-1">
+                <h4 class="my-0 fw-normal">Statistics</h4>
+              </div>
+              <div class="card-body">
+                <div class="card-body">
+
+                </div>
+              </div>
+
+            </div>
+-->
+<!--
+<div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-1">
+                  <h4 class="my-0 fw-normal">New Card Title</h4>
+              </div>
+              <div class="card-body">
+                 
+              </div>
+          </div>
+        </div>
+
+         
+              
+            
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-1">
+                <h4 class="my-0 fw-normal">To Do</h4>
+              </div>
+              <div class="card-body">
+                <div class="card-body">
+                  <form action="/add" method="POST">
+                    <input
+                      type="text"
+                      name="title"
+                      class="form-control"
+                      placeholder="Add a new task.."
+                    />
+                    <input
+                      type="submit"
+                      value="Add"
+                      class="btn btn-secondary btn-sm mt-3"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-1">
+                  <h4 class="my-0 fw-normal">In Progress</h4>
+                </div>
+                <div class="card-body">
+                 
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                   
+                  </ul>
+          
+            
+              </div>
+              </div>
+            </div>
+
+
+            <div class="col">
+              <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-1">
+                  <h4 class="my-0 fw-normal">Done</h4>
+                </div>
+                <div class="card-body">
+                 
+                  </h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                   
+                  </ul>
+          
+            
+              </div>
+              </div>
+            </div>
+
+
+            
+              
+
+        </div>
+    -->
+</body>
+
+
+</html>

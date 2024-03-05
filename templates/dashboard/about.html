@@ -1,0 +1,206 @@
+{% extends 'partials/base.html' %} <br />
+{% block content %} About us{% endblock %} {% block content1 %}
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+  <symbol id="twitter" viewBox="0 0 16 16">
+    <path
+      fill-rule="evenodd"
+      d="M16 3.042a6.536 6.536 0 0 1-1.885.518 3.319 3.319 0 0 0 1.458-1.826 6.599 6.599 0 0 1-2.09.797 3.27 3.27 0 0 0-2.38-1.032c-1.82 0-3.296 1.475-3.296 3.292 0 .258.028.508.083.748A9.368 9.368 0 0 1 1.113 2.02a3.303 3.303 0 0 0-1.054 1.246 3.273 3.273 0 0 0 .48 3.634A3.28 3.28 0 0 1 .63 5.97v.041c0 1.635 1.128 2.999 2.627 3.31a3.368 3.368 0 0 1-.867.114c-.212 0-.42-.02-.622-.058a3.291 3.291 0 0 0 3.067 2.28 6.6 6.6 0 0 1-4.073 1.404c-.265 0-.527-.015-.785-.046a9.333 9.333 0 0 0 5.066 1.479c6.066 0 9.375-5.026 9.375-9.375 0-.143-.003-.284-.009-.425a6.723 6.723 0 0 0 1.641-1.709h-.002z"
+    />
+  </symbol>
+  <symbol id="facebook" viewBox="0 0 24 24">
+    <path
+      d="M21.5 0H2.5A2.5 2.5 0 0 0 0 2.5v19A2.5 2.5 0 0 0 2.5 24h9.9v-9.294h-2.66v-3.65h2.66V8.806c0-2.636 1.606-4.074 3.95-4.074 1.122 0 2.09.084 2.367.122v2.75h-1.617c-1.274 0-1.517.605-1.517 1.49v1.95h3.034l-.395 3.65h-2.64V24h5.18A2.5 2.5 0 0 0 24 21.5V2.5A2.5 2.5 0 0 0 21.5 0z"
+    />
+  </symbol>
+  <symbol id="instagram" viewBox="0 0 24 24">
+    <path
+      d="M12 2.04c-3.11 0-3.49.02-4.7.07-1.203.048-1.985.215-2.68.464a5.158 5.158 0 0 0-1.92 1.238A5.158 5.158 0 0 0 2.5 7.36c-.249.695-.416 1.476-.464 2.68C2.06 8.55 2.04 8.89 2.04 12s.02 3.45.07 4.68c.048 1.203.215 1.985.464 2.68a5.158 5.158 0 0 0 1.238 1.92 5.158 5.158 0 0 0 1.92 1.238c.695.248 1.477.415 2.68.464 1.21.05 1.56.07 4.67.07s3.46-.02 4.68-.07c1.203-.05 1.985-.216 2.68-.464a5.158 5.158 0 0 0 1.92-1.238 5.158 5.158 0 0 0 1.238-1.92c.248-.695.415-1.476.464-2.68.05-1.21.07-1.56.07-4.67s-.02-3.46-.07-4.68c-.05-1.203-.216-1.985-.464-2.68a5.158 5.158 0 0 0-1.238-1.92 5.158 5.158 0 0 0-1.92-1.238c-.695-.248-1.477-.415-2.68-.464C15.46 2.06 15.12 2.04 12 2.04zM12 4c2.04 0 2.43.014 3.29.064.907.052 1.422.217 1.818.364.425.157.73.326 1.06.655.329.33.498.635.655 1.06.147.396.312.911.364 1.818.05.858.064 1.247.064 3.287s-.014 2.43-.064 3.29c-.052.907-.217 1.422-.364 1.818-.157.425-.326.73-.655 1.06-.33.329-.635.498-1.06.655-.396.147-.911.312-1.818.364-.858.05-1.247.064-3.287.064s-2.43-.014-3.29-.064c-.907-.052-1.422-.217-1.818-.364-.425-.157-.73-.326-1.06-.655-.329-.33-.498-.635-.655-1.06-.147-.396-.312-.911-.364-1.818-.05-.858-.064-1.247-.064-3.287s.014-2.43.064-3.29c.052-.907.217-1.422.364-1.818.157-.425.326-.73.655-1.06.33-.329.635-.498 1.06-.655.396-.147.911-.312 1.818-.364.858-.05 1.248-.064 3.288-.064zM12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 2.05a3.45 3.45 0 1 1 0 6.9 3.45 3.45 0 0 1 0-6.9zM17.1 4.6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+    />
+  </symbol>
+</svg>
+<div
+  id="carouselExampleDark"
+  class="carousel carousel-dark slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="3"
+      aria-label="Slide 4"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img
+        src="/static/images/intro.png"
+        class="rounded mx-auto d-block"
+        alt="..."
+      /><br /><br /><br /><br /><br />
+      <p></p>
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p>
+          Welcome to our Todo list! <br />Our application is designed to help
+          you stay organized and productive by providing a simple and efficient
+          way to manage your tasks. Whether you're a busy professional, a
+          student with deadlines, or just someone who wants to keep track of
+          daily activities, our Todo list is here to simplify your life.
+          <br />With our intuitive interface and powerful features, you can
+          easily create, organize, and prioritize your tasks. From creating
+          to-do lists for work projects to setting reminders for personal
+          errands, our application is your one-stop solution for all your task
+          management needs. <br />Say goodbye to missed deadlines and forgotten
+          tasks. With our Todo list, you'll stay on top of your responsibilities
+          and achieve your goals with ease. Start managing your tasks
+          efficiently today and experience the difference it makes in your
+          productivity and peace of mind.
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img
+        src="/static/images/team.png"
+        class="rounded mx-auto d-block"
+        alt="..."
+      /><br /><br /><br /><br /><br />
+      <p></p>
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p>KHAOULA RAJA, a full stack software engineering student at ALX.</p>
+        <p>
+          As a small but dedicated team, "Let's Do it" is currently led and
+          managed by me as the founder and sole member. <br />With a passion for
+          organization, I am committed to delivering high-quality task manager
+          to help you stay organized and productive! <br />While we may be a
+          small team, our dedication and commitment to excellence are unmatched,
+          driving us to continually innovate and grow.
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="/static/images/history.png"
+        class="rounded mx-auto d-block"
+        alt="..."
+      /><br /><br /><br /><br /><br />
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p>
+          In February 2024, the journey began as a personal project, "Let's Do
+          It" was born out of a personal quest to elevate individual
+          productivity and organizational efficiency. <br />With a commitment to
+          continuous improvement, "let's Do It" will be one of the most popular
+          task managers in the future, we will continuously be improving and
+          expanding its features to meet the needs of its growing user base.<br />
+          Stay tuned as we relentlessly enhance and expand our features to
+          empower our users in their journey towards productivity and
+          organization.
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="/static/images/contact.png"
+        class="rounded mx-auto d-block"
+        alt="..."
+      /><br /><br /><br /><br /><br />
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+
+        <div class="contact-info">
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone"></i> Phone: +x (xxx) xxx-xxxx</li>
+            <li><i class="bi bi-envelope"></i> Email: contact@letsdoit.com</li>
+            <li>
+              <a href="#"><i class="bi bi-facebook"></i> Facebook</a>
+            </li>
+            <li>
+              <a href="#"><i class="bi bi-twitter"></i> Twitter</a>
+            </li>
+            <li>
+              <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="footer fixed-bottom">
+  <footer
+    class="d-flex flex-wrap justify-content-between align-items-center py-1 my-1 border-top"
+  >
+    <div class="col-md-2 d-flex align-items-center justify-content-center">
+      <span class="text-center text-muted"
+        >© 2024 Let's Do It, Inc. All rights reserved.</span
+      >
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3">
+        <a class="text-muted" href="#"
+          ><svg class="bi" width="24" height="24">
+            <use xlink:href="#twitter"></use></svg
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-muted" href="#"
+          ><svg class="bi" width="24" height="24">
+            <use xlink:href="#instagram"></use></svg
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-muted" href="#"
+          ><svg class="bi" width="24" height="24">
+            <use xlink:href="#facebook"></use></svg
+        ></a>
+      </li>
+    </ul>
+  </footer>
+</div>
+{% endblock %}

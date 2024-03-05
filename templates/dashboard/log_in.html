@@ -1,0 +1,102 @@
+{% extends 'partials/base.html' %}
+<br />
+{% block content %} Log in Let's Do It {% endblock %} {% block content1 %}
+
+<body class="text-center">
+  <style>
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  </style>
+  <main class="form-signin mt-5">
+    <form method="POST" action="/auth/login">
+
+      <img
+        class="mb-4"
+        src="/static/images/icon.png"
+        alt=""
+        width="72"
+        height="57"
+      />
+      <h1 class="h3 mb-3 fw-normal">Log In</h1>
+
+      <div class="form-floating mt-5">
+
+
+        {{ form.hidden_tag() }}
+        {{ form.email(class="form-control", id="floatingInput", placeholder="name@example.com") }}
+<!--
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+-->
+        <label for="floatingInput">Enter your Email address</label>
+      </div>
+
+      <div class="form-floating">
+<!--  
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+-->
+        {{ form.password(class="form-control", id="floatingPassword", placeholder="Password") }}
+        <label for="floatingPassword">Enter your Password</label>
+        <div
+          class="dbbd207e fb8d74bb _14423c92 _8e9bf2ee f9be90b4 _5f8879d9"
+        ></div>
+      </div>
+
+      <div id="passwordHelpBlock" class="form-text">
+        Password must be 8-20 characters long.
+      </div>
+
+      <div class="checkbox mt-3 mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+      <!--
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+      -->
+      <div class="fEyPXtB a83bd4e0 a8d37c6e fb8d74bb _1c09cd18">
+        Don’t have an account? <a href="/auth/signup">Sign up</a>
+      </div>
+      <p class="mt-5 mb-3 text-muted">
+        © 2024 Let's Do It, Inc. All rights reserved.
+      </p>
+    </form>
+  </main>
+
+  <span id="PING_CONTENT_AUTOPLAY_DETECTION" style="display: none"></span>
+</body>
+{% endblock %}
