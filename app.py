@@ -20,6 +20,14 @@ bcrypt = Bcrypt(app)
 
 app.app_context().push()
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "log_in"
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 #Create models
 
@@ -58,7 +66,12 @@ class ToDo(db.Model):
 @app.route('/auth/login', methods=['GET', 'POST'])
 def log_in():
     form = LogIn()
-    pass
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return redirect(url_for('dashboard'))
     return render_template('dashboard/log_in.html', form=form)
 
 
@@ -66,14 +79,23 @@ def log_in():
 def sign_up():
     form = SignUp()
     if form.validate_on_submit():
-        print('Form data:', request.form)
-        hashed_pwd = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        print('Hashed password:', hashed_pwd)
-        new_user = User(username=form.username.data, email=form.email.data, password=hashed_pwd)
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('log_in'))
+        if form.validate_on_submit():
+            hashed_pwd = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            new_user = User(username=form.username.data, email=form.email.data, password=hashed_pwd)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('log_in'))
     return render_template('dashboard/sign_up.html', form=form)
+
+
+@app.route('/auth/logout', methods=['GET', 'POST'])
+@login_required
+def log_out():
+    logout_user()
+    return redirect(url_for('log_in'))
+
+
+
 
 @app.route('/')
 def index():
@@ -109,7 +131,19 @@ def delete(id):
 def about_page():
     return render_template('dashboard/about.html')
 
-@app.route('/dashboard')
+
+@app.route('/dashboard/tasks', methods=['GET', 'POST'])
+@login_required
+def tasks():
+    todo_list = ToDo.query.all()
+    total = ToDo.query.count()
+    completed_tasks = ToDo.query.filter_by(complete=True).count()
+    uncompleted_tasks = ToDo.query.filter_by(complete=False).count()
+    return render_template('dashboard/current_tasks.html', todo_list=todo_list, total=total, completed_tasks=completed_tasks, uncompleted_tasks=uncompleted_tasks) 
+
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+@login_required
 def dashboard():
     todo_list = ToDo.query.all()
     total = ToDo.query.count()

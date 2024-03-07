@@ -32,7 +32,7 @@ content1 %}
 </style>
 <body class="text-center">
   <main class="form-signin mt-5">
-    <form>
+    <form method="POST" action="">
       <img
         class="mb-4"
         src="/static/images/icon.png"
@@ -44,38 +44,7 @@ content1 %}
         You are a new user? <br />
         Please Sign up
       </h1>
-<!--
-      <div class="row g-2">
-        <div class="col-mt-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="First name"
-            aria-label="First name"
-          />
-        </div>
-        <div class="col">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Last name"
-            aria-label="Last name"
-          />
-        </div>
-      </div>
--->
 
-<!--
-<div class="form-floating mt-5">
-  <input
-    type="text"
-    class="form-control"
-    id="floatingInput"
-    placeholder="First name"
-  />
-  <label for="floatingInput">First name</label>
-</div>
--->
 <div class="form-floating mt-5">
 
   {{ form.hidden_tag() }}
@@ -95,26 +64,12 @@ content1 %}
       <div class="form-floating ">
 
       {{ form.email (class="form-control", id="floatingInput", placeholder="name@example.com") }}
-      <!-- 
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-      --> 
+    
         <label for="floatingInput">Enter your Email address</label>
       </div>
       <div class="form-floating ">
         {{ form.password(class="form-control", id="floatingPassword", placeholder="Password") }}
-      <!-- 
-        <input
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-        />
-      --> 
+   
         <label for="floatingPassword">Enter your Password</label>
         <div
           class="dbbd207e fb8d74bb _14423c92 _8e9bf2ee f9be90b4 _5f8879d9"

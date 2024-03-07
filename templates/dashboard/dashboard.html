@@ -1,5 +1,32 @@
 {% extends 'partials/base2.html' %} {% block content %} Personnel dashboard {%
 endblock %} {% block content1 %}
+
+
+<div>
+  <label for="colorSelect">Select Background Color:</label>
+  <select id="colorSelect">
+      <option value="white">White</option>
+      <option value="lightblue">Light Blue</option>
+      <option value="lightgreen">Light Green</option>
+      <option value="lightpink">Light Pink</option>
+  </select>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var colorSelect = document.getElementById("colorSelect");
+      colorSelect.addEventListener("change", function() {
+          var selectedColor = colorSelect.value;
+          changeBackgroundColor(selectedColor);
+      });
+
+      function changeBackgroundColor(color) {
+          document.body.style.backgroundColor = color;
+      }
+  });
+</script>
+    
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
   <symbol id="twitter" viewBox="0 0 16 16">
     <path
@@ -23,7 +50,7 @@ endblock %} {% block content1 %}
   <footer
     class="d-flex flex-wrap justify-content-between align-items-center py-1 my-1 border-top"
   >
-    <div class="col-md-3 d-flex align-items-center justify-content-center">
+    <div class="col-md-2 d-flex align-items-center justify-content-center">
       <span class="text-center text-muted"
         >© 2024 Let's Do It, Inc. All rights reserved.</span
       >
