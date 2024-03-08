@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
@@ -61,6 +61,13 @@ class ToDo(db.Model):
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean, default=False)
 
+
+@app.route('/change_background_color', methods=['POST'])
+def change_background_color():
+    if request.method == 'POST':
+        color = request.form.get('color')
+        session['background_color'] = color
+        return redirect(url_for('dashboard'))
 
 
 @app.route('/auth/login', methods=['GET', 'POST'])

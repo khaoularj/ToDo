@@ -17,10 +17,39 @@
             margin: 10px 5px; /* Reduce the margin around the cards */
           }
         }
+
+        #colorSelect {
+        
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        
+        font-weight: bold;
+      }
+
       </style>
   </head>
-  
-  <body>
+  <script>
+    function toggleColorDropdown() {
+        var dropdown = document.getElementById("colorDropdown");
+        dropdown.classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.color-button')) {
+            var dropdowns = document.getElementsByClassName("color-dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+  <body style="background-color: {{session.get('background_color', 'white')}};">
 
     <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
       <div class="container-fluid">
@@ -79,14 +108,37 @@
                 Curent tasks
               </a>
             </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5M12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5M1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8m9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5m1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
-                </svg>
-                Settings
-              </a>
+          
+            <li class="dropdown">
+                <a href="#" class="nav-link text-white dropdown-toggle" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5M12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5M1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8m9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5m1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                    Settings
+                </a>
+                <!--<ul class="dropdown-menu" aria-labelledby="settingsDropdown">-->
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">    
+                    <li>
+                        <div class="dropdown-item">
+                            <label for="colorSelect">Select Background Color:</label>
+                    
+
+                            <select id="colorSelect">
+                                <option value="#fbf6e9">Default</option>
+                                <option value="#f6ebae79">Light Yellow</option>
+                                <option value="#faa66079">Light Orange</option>
+                                <option value="#eed1f679">Light Purple</option>
+                                <option value="#d6e9e9">Light Blue</option>
+                                <option value="#dcf3d5">Light Green</option>
+                                <option value="#f4e4de">Light Pink</option>
+                                <!--<body style="background-color: #f4e4de">-->
+
+                            </select>
+                        </div>
+                    </li>
+                </ul>
             </li>
+
             <li>
                 <a href="#" class="nav-link text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -96,6 +148,7 @@
                   Profile
                 </a>
               </li>
+              
 
               <li>
                 <a href="{{url_for('log_out')}}" class="nav-link text-white">
