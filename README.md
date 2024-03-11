@@ -38,6 +38,6 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Contact:
 For any inquiries or feedback, please contact KHAOULA RAJA at :
-Email: khaoula.raja1@gmail.com
-GitHub: khaoularj
+Email: khaoula.raja1@gmail.com/ 
+GitHub: khaoularj/ 
 Discord: khaoula.rj
