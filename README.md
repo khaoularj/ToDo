@@ -1,4 +1,5 @@
 ![logo](https://github.com/khaoularj/ToDo/assets/125494714/e98e794d-b401-47ef-840e-00532c4f70a1)
+
 ================Let's Do It================
 Let's do it: Your personal task manager for effortless productivity
 =======================================================================================
@@ -8,13 +9,13 @@ Let's do it: Your personal task manager for effortless productivity
   **Responsive Design**: The app is designed to be mobile-friendly and works well on various screen sizes.
 =======================================================================================
 ## Technologies Used:
-  -Python: Primary language for backend development.
-  -Flask: Web framework for building the backend of the application.
-  -HTML/CSS/JavaScript: Languages for frontend development.
-  -sqlite: Database options for storing tasks and user data.
-  -Docker: Platforms for deploying the application.
-  -GitHub: Version control system and repository hosting for collaboration.
-  -VsCode: Tools for writing and editing code.
+   -Python: Primary language for backend development.
+   -Flask: Web framework for building the backend of the application.
+   -HTML/CSS/JavaScript: Languages for frontend development.
+   -sqlite: Database options for storing tasks and user data.
+   -Docker: Platforms for deploying the application.
+   -GitHub: Version control system and repository hosting for collaboration.
+   -VsCode: Tools for writing and editing code.
 =======================================================================================
 ## Usage:
   - Sign up for an account or log in if you already have one.
