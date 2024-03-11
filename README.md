@@ -7,7 +7,7 @@ Let's do it: Your personal task manager for effortless productivity
   - User Authentication: Users can sign up, log in, and log out securely.
   - Task Management: Users can create, update, delete, and view tasks.
   - Responsive Design: The app is designed to be mobile-friendly and works well on various screen sizes.
-=======================================================================================
+
 ## Technologies Used:
    - Python: Primary language for backend development.
    - Flask: Web framework for building the backend of the application.
@@ -16,7 +16,7 @@ Let's do it: Your personal task manager for effortless productivity
    - Docker: Platforms for deploying the application.
    - GitHub: Version control system and repository hosting for collaboration.
    - VsCode: Tools for writing and editing code.
-=======================================================================================
+
 ## Usage:
   - Sign up for an account or log in if you already have one.
   - Create new tasks by clicking on the "Add Task" button.
