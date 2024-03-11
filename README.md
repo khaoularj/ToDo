@@ -26,7 +26,7 @@ Let's do it: Your personal task manager for effortless productivity
 ## Screenshots:
 ![dashboard3](https://github.com/khaoularj/ToDo/assets/125494714/84680319-ec51-49ab-8e16-9c27695bc087)
 
-=======================================================================================
+
 ## Contributing:
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
   1. Fork the repository.
@@ -35,7 +35,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
   4. Commit your changes (`git commit -am 'Add new feature'`).
   5. Push to the branch (`git push origin feature/my-feature`).
   6. Create a new Pull Request.
-=======================================================================================
+
 ## Contact:
 For any inquiries or feedback, please contact KHAOULA RAJA at :
 Email: khaoula.raja1@gmail.com
