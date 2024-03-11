@@ -22,7 +22,7 @@ Let's do it: Your personal task manager for effortless productivity
   - Create new tasks by clicking on the "Add Task" button.
   - Update or delete tasks using the provided options.
   - Log out when you're done.
-=======================================================================================
+=======================================================================================================
 ## Screenshots:
 ![dashboard3](https://github.com/khaoularj/ToDo/assets/125494714/84680319-ec51-49ab-8e16-9c27695bc087)
 
