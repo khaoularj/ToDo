@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+"""from flask_migrate import Migrate"""
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, EmailField
 from wtforms.validators import InputRequired, Length, ValidationError, Email
 from flask_bcrypt import Bcrypt
-import sqlite3
 
 
 
@@ -30,17 +29,24 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 #Create models
-
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), nullable=False, unique=True)
     username = db.Column(db.String(20), nullable=False)
     password = db.Column(db.String(80), nullable=False)
-    
+    """user = db.relationship('User', backref=db.backref('tasks', lazy=True))"""
+    tasks = db.relationship('ToDo', backref='user', lazy=True)
+
+class ToDo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    complete = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
 
 class SignUp(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=3, max=20)], render_kw={"placeholder":"Username"})
-    email = StringField(validators=[InputRequired(), Email(), Length(min=8, max=120)], render_kw={"placeholder":"Email"})
+    email = EmailField(validators=[InputRequired(), Email(), Length(min=8, max=120)], render_kw={"placeholder":"Email"})
     password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder":"Password"})
     submit = SubmitField("Sign Up")
 
@@ -51,15 +57,12 @@ class SignUp(FlaskForm):
 
 
 class LogIn(FlaskForm):
-    email = StringField(validators=[InputRequired(), Email(message='Invalid email address'), Length(min=8, max=120)], render_kw={"placeholder":"Email"})
+    email = EmailField(validators=[InputRequired(), Email(message='Invalid email address'), Length(min=8, max=120)], render_kw={"placeholder":"Email"})
     password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder":"Password"})
     submit = SubmitField("Log In")
 
 
-class ToDo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
-    complete = db.Column(db.Boolean, default=False)
+
 
 
 @app.route('/change_background_color', methods=['POST'])
@@ -111,8 +114,12 @@ def index():
 
 @app.route('/dashboard/add', methods=['POST'])
 def add():
-    title = request.form.get('title')
+    """title = request.form.get('title')
     new_task = ToDo(title=title, complete=False)
+    db.session.add(new_task)
+    db.session.commit()"""
+    title = request.form.get('title')
+    new_task = ToDo(title=title, complete=False, user_id=current_user.id)  # Include user_id
     db.session.add(new_task)
     db.session.commit()
     return redirect(url_for('dashboard'))
@@ -142,24 +149,32 @@ def about_page():
 @app.route('/dashboard/tasks', methods=['GET', 'POST'])
 @login_required
 def tasks():
-    todo_list = ToDo.query.all()
+    """todo_list = ToDo.query.all()
     total = ToDo.query.count()
     completed_tasks = ToDo.query.filter_by(complete=True).count()
-    uncompleted_tasks = ToDo.query.filter_by(complete=False).count()
+    uncompleted_tasks = ToDo.query.filter_by(complete=False).count()"""
+    """todo_list = current_user.tasks.all()"""
+    todo_list = current_user.tasks
+    total = len(todo_list)
+    completed_tasks = sum(1 for task in todo_list if task.complete)
+    uncompleted_tasks = total - completed_tasks
     return render_template('dashboard/current_tasks.html', todo_list=todo_list, total=total, completed_tasks=completed_tasks, uncompleted_tasks=uncompleted_tasks) 
 
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    todo_list = ToDo.query.all()
+    """todo_list = ToDo.query.all()
     total = ToDo.query.count()
     completed_tasks = ToDo.query.filter_by(complete=True).count()
-    uncompleted_tasks = ToDo.query.filter_by(complete=False).count()
+    uncompleted_tasks = ToDo.query.filter_by(complete=False).count()"""
+    todo_list = ToDo.query.filter_by(user_id=current_user.id).all()
+    total = ToDo.query.filter_by(user_id=current_user.id).count()
+    completed_tasks = ToDo.query.filter_by(user_id=current_user.id, complete=True).count()
+    uncompleted_tasks = ToDo.query.filter_by(user_id=current_user.id, complete=False).count()
     return render_template('dashboard/dashboard.html', todo_list=todo_list, total=total, completed_tasks=completed_tasks, uncompleted_tasks=uncompleted_tasks)
-
 
 
 if __name__ == '__main__':
     db.create_all()
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

@@ -48,26 +48,12 @@
 
         {{ form.hidden_tag() }}
         {{ form.email(class="form-control", id="floatingInput", placeholder="name@example.com") }}
-<!--
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
--->
+
         <label for="floatingInput">Enter your Email address</label>
       </div>
 
       <div class="form-floating">
-<!--  
-        <input
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-        />
--->
+
         {{ form.password(class="form-control", id="floatingPassword", placeholder="Password") }}
         <label for="floatingPassword">Enter your Password</label>
         <div
@@ -85,9 +71,6 @@
         </label>
       </div>
       {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
-      <!--
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-      -->
       <div class="fEyPXtB a83bd4e0 a8d37c6e fb8d74bb _1c09cd18">
         Don’t have an account? <a href="/auth/signup">Sign up</a>
       </div>
