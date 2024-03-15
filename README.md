@@ -1,7 +1,7 @@
 ![logo](https://github.com/khaoularj/ToDo/assets/125494714/e98e794d-b401-47ef-840e-00532c4f70a1)
 
 ========Let's Do It========         
-Let's do it: Your personal task manager for effortless productivity
+Your personal task manager for effortless productivity
 =======================================================================================
 ## Features:
   - User Authentication: Users can sign up, log in, and log out securely.
